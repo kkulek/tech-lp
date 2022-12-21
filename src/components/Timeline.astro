@@ -1,0 +1,48 @@
+---
+const timeline = [
+	{
+		title: "Call for papers - partners",
+		dateTag: "2022-11",
+		dateCopy: "November 2022",
+	},
+	{
+		title: "Application for mentors",
+		dateTag: "2022-12-14P12D",
+		dateCopy: "14 - 25 December 2022",
+	},
+	{
+		title: "Application for mentees",
+		dateTag: "2023-01-02P14D",
+		dateCopy: "02 - 15 January 2023",
+	},
+	{
+		title: "Mentoring program",
+		dateTag: "2022-02-13P121D",
+		dateCopy: "13 February - 13 June 2023",
+	},
+];
+---
+
+<section class="container">
+	<h2 class="text-center mb-10">Check our timeline!</h2>
+	<ol class="md:hidden space-y-10">
+		{
+			timeline.map((item, index) => (
+				<li class="flex gap-4 items-start">
+					<div class="bg-dark text-white w-12 h-12 flex items-center justify-center rounded-full shrink-0">
+                        <span class="text-2xl font-bold">{index + 1}</span>
+					</div>
+					<div>
+						<h3>{item.title}</h3>
+						<time datetime={item.dateTag}>{item.dateCopy}</time>
+					</div>
+				</li>
+			))
+		}
+	</ol>
+	<img
+		class="hidden md:block mx-auto"
+		src="/images/timeline.webp"
+		alt="Tech Leaders mentoring program timeline"
+	/>
+</section>

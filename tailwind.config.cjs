@@ -8,9 +8,18 @@ module.exports = {
 				accent: "rgb(3, 166, 144)",
 			},
 			lineHeight: {
-				'hero-headline': '60px',
-				'body-regular': '34px'
-			}
+				"hero-headline": "60px",
+				"body-regular": "34px",
+			},
+			content: {
+				goals: 'url("./images/icons/goals-icon.svg")',
+				mentors: 'url("./images/icons/mentors-icon.svg")',
+				rating: 'url("./images/icons/rating-icon.svg")',
+				survey: 'url("./images/icons/survey-icon.svg")',
+			},
+			boxShadow: {
+				"custom-light": "0px 8px 15px rgba(34, 34, 34, 0.08)",
+			},
 		},
 		fontFamily: {
 			montserrat: ["Montserrat", "sans-serif"],

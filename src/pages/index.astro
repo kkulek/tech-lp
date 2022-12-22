@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import Facts from '../components/Facts.astro';
 import Timeline from '../components/Timeline.astro';
 import GoalMission from '../components/GoalMission.astro';
+import ITFields from '../components/ITFields';
 ---
 
 <Layout title="8th edition of Tech Leaders mentoring program">
@@ -12,5 +13,6 @@ import GoalMission from '../components/GoalMission.astro';
 		<Facts />
 		<Timeline />
 		<GoalMission />
+		<ITFields client:idle/>
 	</main>
 </Layout>

@@ -1,41 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const fields = [
 	{
 		name: "UX Design",
-		square: "squareDarkBlue",
+		squareMobile: "squareDarkBlue",
+		squareDesktop: "squareDarkBlue",
 	},
 	{
 		name: "QA Testing",
-		square: "squareYellow",
+		squareMobile: "squareYellow",
+		squareDesktop: "squareDarkBlue",
 	},
 	{
 		name: "Project Management",
-		square: "squareBlue",
+		squareMobile: "squareBlue",
+		squareDesktop: "squareDarkBlue",
 	},
 	{
 		name: "Big Data",
-		square: "squareDarkBlue",
+		squareMobile: "squareDarkBlue",
+		squareDesktop: "squareYellow",
 	},
 	{
 		name: "Business Development",
-		square: "squareYellow",
+		squareMobile: "squareYellow",
+		squareDesktop: "squareYellow",
 	},
 	{
 		name: "Azure Cloud",
-		square: "squareBlue",
+		squareMobile: "squareBlue",
+		squareDesktop: "squareYellow",
 	},
 	{
 		name: "Cybersecurity",
-		square: "squareDarkBlue",
+		squareMobile: "squareDarkBlue",
+		squareDesktop: "squareBlue",
 	},
 	{
 		name: "Machine Learning",
-		square: "squareYellow",
+		squareMobile: "squareYellow",
+		squareDesktop: "squareBlue",
 	},
 	{
 		name: "And much more!",
-		square: "squareBlue",
+		squareMobile: "squareBlue",
+		squareDesktop: "squareBlue",
 	},
 ];
 
@@ -55,18 +64,16 @@ export default function ITFields() {
 			<h2 className="text-center">
 				Our mentors are experts from many IT fields!
 			</h2>
-			<div className="md:grid md:grid-cols-2 xl:grid-cols-3">
+			<div className="md:grid xl:grid-cols-3">
+				{/* <h3 className="before:content-squareBlue before:content-squareYellow before:content-squareDarkBlue xl:before:content-squareBlue xl:before:content-squareYellow xl:before:content-squareDarkBlue"></h3> */}
 				{fields.map((item, index) =>
 					index >= fieldsToShow ? null : (
-						<>
-							{/* <h3 className="before:content-squareBlue before:content-squareYellow before:content-squareDarkBlue"></h3> */}
 							<h3
 								key={index}
-								className={`relative ml-10 mt-10 text-2xl before:absolute before:content-${item.square} before:-left-14 leading-loose `}
+								className={`relative ml-10 mt-10 text-2xl before:absolute before:content-${item.squareMobile} xl:before:content-${item.squareDesktop} before:-left-14 leading-loose `}
 							>
 								{item.name}
 							</h3>
-						</>
 					)
 				)}
 			</div>

@@ -6,7 +6,7 @@
 
 @layer base {
 	body {
-		@apply text-dark;
+		@apply text-dark selection:bg-black selection:text-white;
 	}
 
 	h1,

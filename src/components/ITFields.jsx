@@ -48,38 +48,64 @@ const fields = [
 	},
 ];
 
-const step = 4;
+const initialShownFields = 4;
 
 export default function ITFields() {
-	const [fieldsToShow, setFieldsToShow] = useState(step);
+	const [fieldsToShow, setFieldsToShow] = useState(initialShownFields);
 	const [buttonShowMore, setButtonShowMore] = useState(true);
+	const [width, setWidth] = useState(null);
+
+	useEffect(() => {
+		window.addEventListener("resize", handleResize);
+		setWidth(window.innerWidth);
+	}, []);
+
+	useEffect(() => {
+		if (width > 1279) {
+			setFieldsToShow(fields.length);
+		} else {
+			buttonShowMore
+				? setFieldsToShow(initialShownFields)
+				: setFieldsToShow(fields.length);
+		}
+	}, [width]);
+
+	const handleResize = () => {
+		setWidth(window.innerWidth);
+	};
 
 	const handleShowMoreLess = () => {
-		buttonShowMore ? setFieldsToShow(fields.length) : setFieldsToShow(step);
+		buttonShowMore
+			? setFieldsToShow(fields.length)
+			: setFieldsToShow(initialShownFields);
 		setButtonShowMore(!buttonShowMore);
 	};
 
 	return (
-		<section className="container">
-			<h2 className="text-center">
-				Our mentors are experts from many IT fields!
-			</h2>
-			<div className="md:grid xl:grid-cols-3">
-				{/* <h3 className="before:content-squareBlue before:content-squareYellow before:content-squareDarkBlue xl:before:content-squareBlue xl:before:content-squareYellow xl:before:content-squareDarkBlue"></h3> */}
-				{fields.map((item, index) =>
-					index >= fieldsToShow ? null : (
+		<div className="w-full">
+			<section className="container">
+				<h2 className="text-center">
+					Our mentors are experts from many IT fields!
+				</h2>
+				<div className="md:grid xl:grid-cols-3">
+					{/* <h3 className="before:content-squareBlue before:content-squareYellow before:content-squareDarkBlue xl:before:content-squareBlue xl:before:content-squareYellow xl:before:content-squareDarkBlue"></h3> */}
+					{fields.map((item, index) =>
+						index >= fieldsToShow ? null : (
 							<h3
 								key={index}
 								className={`relative ml-10 mt-10 text-2xl before:absolute before:content-${item.squareMobile} xl:before:content-${item.squareDesktop} before:-left-14 leading-loose `}
 							>
 								{item.name}
 							</h3>
-					)
+						)
+					)}
+				</div>
+				{width < 1280 && (
+					<button onClick={handleShowMoreLess}>
+						{buttonShowMore ? "Load more" : "Show less"}
+					</button>
 				)}
-			</div>
-			<button onClick={handleShowMoreLess}>
-				{buttonShowMore ? "Load more" : "Show less"}
-			</button>
-		</section>
+			</section>
+		</div>
 	);
 }

@@ -84,27 +84,34 @@ export default function ITFields() {
 	return (
 		<div className="w-full">
 			<section className="container">
-				<h2 className="text-center">
+				<h2 className="text-center mb-20 xl:mb-28">
 					Our mentors are experts from many IT fields!
 				</h2>
-				<div className="md:grid xl:grid-cols-3">
+				<div className="ml-10 xl:ml-20 md:grid xl:grid-cols-3">
 					{/* <h3 className="before:content-squareBlue before:content-squareYellow before:content-squareDarkBlue xl:before:content-squareBlue xl:before:content-squareYellow xl:before:content-squareDarkBlue"></h3> */}
 					{fields.map((item, index) =>
 						index >= fieldsToShow ? null : (
 							<h3
 								key={index}
-								className={`relative ml-10 mt-10 text-2xl before:absolute before:content-${item.squareMobile} xl:before:content-${item.squareDesktop} before:-left-14 leading-loose `}
+								className={`relative ml-10 mb-16 xl:mb-28 text-2xl before:absolute before:content-${item.squareMobile} xl:before:content-${item.squareDesktop} before:-left-14 leading-loose `}
 							>
 								{item.name}
 							</h3>
 						)
 					)}
 				</div>
-				{width < 1280 && (
-					<button onClick={handleShowMoreLess}>
-						{buttonShowMore ? "Load more" : "Show less"}
-					</button>
-				)}
+				<div className="flex justify-center">
+					{width < 1280 && (
+						<button
+							onClick={handleShowMoreLess}
+							className={`text-accent text-xl justify-self-end font-bold relative after:absolute after:content-arrowToggle after:-right-8 after:transition-all after:duration-300 ${
+								!buttonShowMore && "after:rotate-180 after:top-1"
+							}`}
+						>
+							{buttonShowMore ? "Load more" : "Show less"}
+						</button>
+					)}
+				</div>
 			</section>
 		</div>
 	);

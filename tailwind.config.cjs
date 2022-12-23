@@ -19,6 +19,7 @@ module.exports = {
 				squareBlue: 'url("./images/icons/point-icon-blue.svg")',
 				squareDarkBlue: 'url("./images/icons/point-icon-dark-blue.svg")',
 				squareYellow: 'url("./images/icons/point-icon-yellow.svg")',
+				arrowToggle: 'url("./images/icons/arrow-toggle.svg")',
 			},
 			boxShadow: {
 				"custom-light": "0px 8px 15px rgba(34, 34, 34, 0.08)",
